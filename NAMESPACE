@@ -1,0 +1,8 @@
+
+import(lattice)
+
+export(mountainplot)
+S3method(mountainplot, formula)
+S3method(mountainplot, numeric)
+
+export(panel.mountainplot, prepanel.mountainplot)

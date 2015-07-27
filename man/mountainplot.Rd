@@ -60,6 +60,11 @@ auto.key=list(columns=4), as.table=TRUE)
 K. L. Monti. (1995)
 Folded empirical distribution function curves-mountain plots.
 \emph{The American Statistician}, 49, 342--345.
-\url{http://www.jstor.org/stable/2684570}
+http://www.jstor.org/stable/2684570
+
+Xue, J. H., & Titterington, D. M. (2011). 
+The p-folded cumulative distribution function and the mean absolute
+deviation from the p-quantile.
+\emph{Statistics & Probability Letters}, 81(8), 1179-1182.
 }
 

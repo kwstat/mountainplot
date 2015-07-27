@@ -1,5 +1,6 @@
 
 import(lattice)
+import(stats)
 
 export(mountainplot)
 S3method(mountainplot, formula)

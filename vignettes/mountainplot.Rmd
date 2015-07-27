@@ -1,0 +1,103 @@
+---
+title: "Introduction to the mountainplot package"
+author: "Kevin Wright"
+ate: "`r Sys.Date()`"
+output:
+  html_document:
+    css: avenir-white.css
+    highlight: tango
+vignette: >
+  %\VignetteIndexEntry{Introduction to the mountainplot package}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+## Abstract
+
+The `mountainplot` package provide an extension to the `lattice` package
+that allows for the consutruction of mountain plots, which are also known as
+folded empirical cumulative distribution plots.
+
+##  Setup
+
+```{r setup, echo=FALSE, results="hide"}
+library("knitr")
+opts_chunk$set(fig.align="center", fig.width=6, fig.height=6)
+options(width=90)
+```
+
+Load the package and use the `singer` data from the `lattice`
+package.  Combine the first and second parts of each voice part
+into a new variable called `section`.
+```{r}
+library("mountainplot")
+data(singer, package = "lattice")
+parts <- within(singer, {
+section <- voice.part
+section <- gsub(" 1", "", section)
+section <- gsub(" 2", "", section)
+section <- factor(section)
+})
+# Change levels to logical ordering
+levels(parts$section) <- c("Bass","Tenor","Alto","Soprano")
+```
+
+## Mountain plot
+
+A mountainplot, or folded empircal cumulative distribution function, is
+similar to an ordinary empirical CDF, but once the cumulative probability reaches
+0.50, the CDF is inverted, decreasing back down instead of continuing upward.
+
+Here is an example of the traditional empirical CDFs.
+```{r ecdf}
+require(latticeExtra) # for ecdfplot
+ecdfplot(~height|section, data = parts, groups=voice.part, type='l',
+         layout=c(1,4),
+         main="Empirical CDF",
+         auto.key=list(columns=4), as.table=TRUE)
+```
+
+Here is a view of the same data shown with a mountain plot.
+```{r mtn}
+mountainplot(~height|section, data = parts,
+             groups=voice.part, type='l',
+             layout=c(1,4),
+             main="Folded Empirical CDF",
+             auto.key=list(columns=4), as.table=TRUE)
+```
+
+Monti (1995) suggests that a mountain plot is helpful with exploring data and
+makes it easier to:
+
+1. Determine the median.
+2. Determine the range.
+3. Determine central or tail percentiles of any specified value.
+4. Observe outliers.
+5. Observe unusual gaps in the data.
+6. Examine the data for symmetry.
+7. Compare multiple distributions.
+8. Visually examine the sample size.
+
+Additionally, the area under the curve is equal to the mean absolute deviation
+(MAD) (Xue \& Titterington, 2011).
+
+## Session information
+
+```{r session}
+sessionInfo()
+```
+
+## Bibliography
+
+K. L. Monti. (1995)
+Folded empirical distribution function curves-mountain plots.
+_The American Statistician_, 49, 342--345.
+http://www.jstor.org/stable/2684570
+
+J. H. Xue and D. M. Titterington, (2011). 
+The p-folded cumulative distribution function and the mean absolute
+deviation from the p-quantile.
+_Statistics \& Probability Letters_, 81, 1179-1182.
+http://dx.doi.org/10.1016/j.spl.2011.03.014
+
+

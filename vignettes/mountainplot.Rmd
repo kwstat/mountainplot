@@ -7,9 +7,9 @@ output:
     css: avenir-white.css
     highlight: tango
 vignette: >
-  %\VignetteIndexEntry{Introduction to the mountainplot package}
-  %\VignetteEncoding{UTF-8}
-  %\VignetteEngine{knitr::rmarkdown}
+  % \VignetteIndexEntry{Introduction to the mountainplot package}
+  % \VignetteEncoding{UTF-8}
+  % \VignetteEngine{knitr::rmarkdown}
 ---
 
 ## Abstract

@@ -7,7 +7,8 @@
 mountainplot(x, data, ...)
 
 \method{mountainplot}{formula}(x, data = NULL,
-  prepanel = "prepanel.mountainplot", panel = "panel.mountainplot",
+  prepanel = "prepanel.mountainplot",
+  panel = "panel.mountainplot",
   ylab = gettext("Folded Empirical CDF"),
   yscale.components = mountainplotyscale.components, scales = list(y =
   list(alternating = 3)), ...)

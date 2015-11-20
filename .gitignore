@@ -1,4 +1,5 @@
+.Rbuildignore
+.Rproj.user/
+mountainplot.Rproj
 /vignettes/mountainplot.md
-/vignettes/#mountainplot.Rmd#
-/vignettes/.#mountainplot.Rmd
 /man/mountainplot.Rd~

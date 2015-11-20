@@ -2,6 +2,7 @@
 # mountainplot 1.2 - unpublished
 
 * Change vignette from Rnw/pdf to Rmd/html.
+* Switch to Roxygen for documentation.
 
 # mountainplot 1.1 - Jul 2015
 

@@ -1,7 +1,6 @@
 # mountainplot.r
 # Time-stamp: c:/x/rpack/kw/R/fcdf.r
 
-
 #' Mountainplot
 #' 
 #' A mountain plot is similar to an empirical CDF, but _decreases_ from .5 down

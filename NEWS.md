@@ -3,10 +3,9 @@
 
 * Change vignette from Rnw/pdf to Rmd/html.
 * Switch to Roxygen for documentation.
+* Add diabetic mice example.
 
 # mountainplot 1.1 - Jul 2015
-
-* Namespace changes due to R devel changes.
 
 # mountainplot 1.0 - Jan 2015
 

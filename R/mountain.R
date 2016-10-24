@@ -6,7 +6,6 @@
 #' A mountain plot is similar to an empirical CDF, but _decreases_ from .5 down
 #' to 1, using a separate scale on the right axis.
 #' 
-#' 
 #' @param x Variable in the data.frame 'data'.
 #' @param data A data frame
 #' @param ... Other arguments
@@ -17,15 +16,17 @@
 #' @param scales The "scales" argument used by lattice functions.
 #' @param xlab Horizontal axis label.
 #' @return A lattice object
-#' @references K. L. Monti. (1995) Folded empirical distribution function
-#' curves-mountain plots. \emph{The American Statistician}, 49, 342--345.
+#' @references
+#' K. L. Monti. (1995).
+#' Folded empirical distribution function curves-mountain plots.
+#' \emph{The American Statistician}, 49, 342--345.
 #' http://www.jstor.org/stable/2684570
 #' 
 #' Xue, J. H., & Titterington, D. M. (2011).  The p-folded cumulative
 #' distribution function and the mean absolute deviation from the p-quantile.
 #' \emph{Statistics & Probability Letters}, 81(8), 1179-1182.
-#' @examples
 #' 
+#' @examples
 #' 
 #' data(singer, package = "lattice")
 #' singer <- within(singer, {
@@ -38,7 +39,6 @@
 #' mountainplot(~height|voice.part, data = singer, type='p')
 #' mountainplot(~height|section, data = singer, groups=voice.part, type='l',
 #' auto.key=list(columns=4), as.table=TRUE)
-#' 
 #' 
 #' @export
 mountainplot <- function (x, data, ...)

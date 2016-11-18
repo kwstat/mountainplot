@@ -45,7 +45,6 @@ to 1, using a separate scale on the right axis.
 }
 \examples{
 
-
 data(singer, package = "lattice")
 singer <- within(singer, {
 section <- voice.part
@@ -58,11 +57,11 @@ mountainplot(~height|voice.part, data = singer, type='p')
 mountainplot(~height|section, data = singer, groups=voice.part, type='l',
 auto.key=list(columns=4), as.table=TRUE)
 
-
 }
 \references{
-K. L. Monti. (1995) Folded empirical distribution function
-curves-mountain plots. \emph{The American Statistician}, 49, 342--345.
+K. L. Monti. (1995).
+Folded empirical distribution function curves-mountain plots.
+\emph{The American Statistician}, 49, 342--345.
 http://www.jstor.org/stable/2684570
 
 Xue, J. H., & Titterington, D. M. (2011).  The p-folded cumulative

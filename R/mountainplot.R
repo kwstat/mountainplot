@@ -1,5 +1,5 @@
-# mountainplot.r
-# Time-stamp: c:/x/rpack/kw/R/fcdf.r
+# mountainplot.R
+# Time-stamp: <25 Apr 2017 14:24:58 c:/x/rpack/mountainplot/R/mountainplot.R>
 
 #' Mountainplot
 #' 
@@ -130,6 +130,7 @@ prepanel.mountainplot <- function (x, ...) {
 panel.mountainplot <- function (x, type = "s",
                                 groups = NULL,
                                 ref = TRUE, ...) {
+  # junk comment
   reference.line <- trellis.par.get("reference.line")
   if (ref) {
     reference.line <- trellis.par.get("reference.line")

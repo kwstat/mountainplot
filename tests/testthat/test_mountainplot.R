@@ -44,3 +44,6 @@ test_that("mountainplot.formula", {
                scales=list(x=list(relation="free")))
 })
 
+test_that("mountainplot.panel", {
+  mountainplot(~height, singer, panel=mountainplot::panel.mountainplot)
+})

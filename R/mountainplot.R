@@ -7,14 +7,23 @@
 #' to 1, using a separate scale on the right axis.
 #' 
 #' @param x Variable in the data.frame 'data'.
+#' 
 #' @param data A data frame
+#' 
 #' @param ... Other arguments
+#' 
 #' @param prepanel The prepanel function.  Default "prepanel.mountainplot".
+#' 
 #' @param panel The panel function.  Default "panel.mountainplot".
+#' 
 #' @param ylab Vertical axis label.
+#' 
 #' @param yscale.components Function for drawing left and right side axes.
+#' 
 #' @param scales The "scales" argument used by lattice functions.
+#' 
 #' @param xlab Horizontal axis label.
+#' 
 #' @return A lattice object
 #' @references
 #' K. L. Monti. (1995).
@@ -104,7 +113,9 @@ mountainplot.numeric <- function (x, data = NULL,
 #' 
 #' 
 #' @param x The data to be plotted.
+#' 
 #' @param ... Other arguments
+#' 
 #' @import stats
 #' @export
 prepanel.mountainplot <- function (x, ...) {
@@ -122,10 +133,15 @@ prepanel.mountainplot <- function (x, ...) {
 #' 
 #' 
 #' @param x The data to be plotted.
+#' 
 #' @param type The type of ecdf line to use.  Default is 's' square.
+#' 
 #' @param groups Variable to use for grouping
+#' 
 #' @param ref If TRUE, draw horizontal reference lines at 0,1
+#' 
 #' @param ... Other arguments
+#' 
 #' @export
 panel.mountainplot <- function (x, type = "s",
                                 groups = NULL,

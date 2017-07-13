@@ -1,13 +1,15 @@
 
-# mountainplot 1.2 - unpublished
+# mountainplot 1.2 - Jul 2017
 
 Added diabetic mice example to vignette.
 
 Changed vignette from Rnw to Rmd.
 
-Switched to roxygen2 documentation.
+Switched to `roxygen2` documentation.
 
-Switched to testthat and covr packages.
+Now using `testthat` and `covr` packages.
+
+Added package logo on github.
 
 # mountainplot 1.1 - Jul 2015
 

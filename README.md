@@ -2,7 +2,7 @@
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/mountainplot)](https://cran.r-project.org/package=mountainplot)
 [![CRAN_Downloads](https://cranlogs.r-pkg.org/badges/mountainplot)](https://cranlogs.r-pkg.org/badges/mountainplot)
-[![Research software impact](http://depsy.org/api/package/cran/mountainplot/badge.svg)](http://depsy.org/package/r/mountainplot)
+
 
 Key features:
 
@@ -19,10 +19,11 @@ install.packages("devtools")
 devtools::install_github("kwstat/mountainplot")
 ```
 
-## Usage
+## Vignettes
 
-Vignette:
 [Introduction to the mountainplot package](https://rawgit.com/kwstat/mountainplot/master/vignettes/mountainplot_examples.html)
+
+## Usage
 
 ```R
 require(mountainplot)

@@ -2,11 +2,14 @@
 % Please edit documentation in R/mountainplot.R
 \name{mountainplot}
 \alias{mountainplot}
+\alias{mountainplotyscale.components}
 \alias{mountainplot.formula}
 \alias{mountainplot.numeric}
 \title{Mountainplot}
 \usage{
 mountainplot(x, data, ...)
+
+mountainplotyscale.components(...)
 
 \method{mountainplot}{formula}(x, data = NULL,
   prepanel = "prepanel.mountainplot", panel = "panel.mountainplot",
@@ -42,6 +45,10 @@ A lattice object
 \description{
 A mountain plot is similar to an empirical CDF, but _decreases_ from .5 down
 to 1, using a separate scale on the right axis.
+}
+\details{
+Note that `mountainplotyscale.components` is not really intended to be called
+by the user, but is used by lattice to configure the right-axis ticks and labels.
 }
 \examples{
 

@@ -2,7 +2,6 @@ Package: mountainplot
 Title: Mountain Plots, Folded Empirical Cumulative Distribution Plots
 Version: 1.2
 Authors@R: person("Kevin","Wright", email="kw.stat@gmail.com", comment=c(ORCID = "0000-0002-0617-8673"), role=c("aut","cre"))
-Date: 2017-07-12
 License: GPL-3
 LazyData: yes
 Description: Lattice functions for drawing folded empirical cumulative

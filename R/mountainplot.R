@@ -1,10 +1,13 @@
 # mountainplot.R
-# Time-stamp: <25 Apr 2017 14:24:58 c:/x/rpack/mountainplot/R/mountainplot.R>
+# Time-stamp: <09 Apr 2018 17:08:40 c:/x/rpack/mountainplot/R/mountainplot.R>
 
 #' Mountainplot
 #' 
 #' A mountain plot is similar to an empirical CDF, but _decreases_ from .5 down
 #' to 1, using a separate scale on the right axis.
+#'
+#' Note that `mountainplotyscale.components` is not really intended to be called
+#' by the user, but is used by lattice to configure the right-axis ticks and labels.
 #' 
 #' @param x Variable in the data.frame 'data'.
 #' 
@@ -53,6 +56,12 @@
 mountainplot <- function (x, data, ...)
   UseMethod("mountainplot")
 
+
+# goodpractice::gp() thinks this needs a unit test
+
+#' @rdname mountainplot
+#' @importFrom lattice yscale.components.default
+#' @export
 mountainplotyscale.components <- function(...) {
   ans <- yscale.components.default(...)
   ans$right <- ans$left
@@ -62,7 +71,6 @@ mountainplotyscale.components <- function(...) {
 }
 
 #' @rdname mountainplot
-#' @import lattice
 #' @export
 mountainplot.formula <- 
   function(x, data = NULL,
@@ -116,7 +124,8 @@ mountainplot.numeric <- function (x, data = NULL,
 #' 
 #' @param ... Other arguments
 #' 
-#' @import stats
+#' @importFrom stats qunif
+#' @importFrom lattice prepanel.default.qqmath
 #' @export
 prepanel.mountainplot <- function (x, ...) {
   # We could possibly just do: importFrom stats qunif
@@ -141,6 +150,9 @@ prepanel.mountainplot <- function (x, ...) {
 #' @param ref If TRUE, draw horizontal reference lines at 0,1
 #' 
 #' @param ... Other arguments
+#'
+#' @importFrom lattice trellis.par.get panel.abline panel.superpose
+#' @importFrom lattice panel.xyplot
 #' 
 #' @export
 panel.mountainplot <- function (x, type = "s",

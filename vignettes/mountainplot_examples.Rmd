@@ -3,6 +3,7 @@ title: "Introduction to the mountainplot package"
 author: "Kevin Wright"
 date: "`r Sys.Date()`"
 output:
+  rmarkdown::html_vignette: default
   html_document:
     highlight: tango
 bibliography: mountainplot.bib
@@ -105,11 +106,6 @@ mountainplot(~albumen, data=dmice, group=group, auto.key=list(columns=3),
              main="Diabetic mice", xlab="Nitrogen-bound bovine serum albumen")
 ```
 
-## Session information
-
-```{r session}
-sessionInfo()
-```
 
 ## Bibliography
 

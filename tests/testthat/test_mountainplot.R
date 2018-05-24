@@ -18,15 +18,16 @@ singer <- within(singer, {
 # panel.mountainplot
 
 test_that("mountainplot.numeric", {
-  mountainplot(1:20)
+  expect_silent(mountainplot(1:20))
   expect_warning(mountainplot(1:20, data=singer))
 })
 
 test_that("mountainplot.formula", {
   # labels
+  expect_silent(
   mountainplot( ~ height, singer,
                main="Folded Empirical CDF",
-               xlab="Singer height",ylab="Folded ECDF")
+               xlab="Singer height",ylab="Folded ECDF") )
   # line types
   mountainplot( ~ height, singer) # default type='s'
   mountainplot( ~ height, singer, type='l')
@@ -45,5 +46,12 @@ test_that("mountainplot.formula", {
 })
 
 test_that("mountainplot.panel", {
-  mountainplot(~height, singer, panel=mountainplot::panel.mountainplot)
+  expect_silent(mountainplot(~height, singer,
+                             panel=mountainplot::panel.mountainplot))
+})
+
+# goodpractice::gp() thinks I don't check mountainplotyscale.components
+test_that("mountainplotyscale.components", {
+  ans <- mountainplotyscale.components(c(.1,.4))
+  expect_identical(ans$right$labels$labels, as.character(1-ans$left$labels$at))
 })

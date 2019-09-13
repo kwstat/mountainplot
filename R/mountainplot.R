@@ -1,5 +1,4 @@
 # mountainplot.R
-# Time-stamp: <09 Apr 2018 17:08:40 c:/x/rpack/mountainplot/R/mountainplot.R>
 
 #' Mountainplot
 #' 

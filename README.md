@@ -1,7 +1,12 @@
-# mountainplot <img src="figure/mountainplot_logo_150.png" align="right" />
+# mountainplot <img src="man/figures/logo.png" align="right" />
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/mountainplot)](https://cran.r-project.org/package=mountainplot)
 [![CRAN_Downloads](https://cranlogs.r-pkg.org/badges/mountainplot)](https://cranlogs.r-pkg.org/badges/mountainplot)
+
+
+Homepage: https://kwstat.github.io/mountainplot/
+
+Repository: https://github.com/kwstat/mountainplot
 
 
 Key features:
@@ -19,9 +24,6 @@ install.packages("devtools")
 devtools::install_github("kwstat/mountainplot")
 ```
 
-## Vignettes
-
-[Introduction to the mountainplot package](https://rawgit.com/kwstat/mountainplot/master/vignettes/mountainplot_examples.html)
 
 ## Usage
 
@@ -42,4 +44,4 @@ mountainplot(~height|section, data = parts,
              main="Folded Empirical CDF",
              auto.key=list(columns=4), as.table=TRUE)
 ```
-![mountainplot](figure/mountainplot.png)
+![mountainplot](man/figures/mountainplot.png)

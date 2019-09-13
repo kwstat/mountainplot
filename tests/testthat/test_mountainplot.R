@@ -1,6 +1,4 @@
 
-context("test_mountainplot.R")
-
 require(mountainplot)
 
 # prepare data for tests

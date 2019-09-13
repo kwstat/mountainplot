@@ -12,19 +12,11 @@ vignette: >
   % \VignetteEncoding{UTF-8}
   % \VignetteEngine{knitr::rmarkdown}
 ---
-<style type="text/css">
-body, td { font-size: 14pt; color: #000; padding:1em; }
-code, pre, #ws, #message { font-size: 12pt;
-  color: #000; background-color: #f5f5f5; }
-code {border: 1px solid #e0e0e0; padding: 0 5px;}
-pre > code { border: 0; }
-</style>
+
 
 ## Abstract
 
-The `mountainplot` package provide an extension to the `lattice` package
-that allows for the consutruction of mountain plots, which are also known as
-folded empirical cumulative distribution plots.
+The `mountainplot` package provide an extension to the `lattice` package that allows for the consutruction of mountain plots, which are also known as folded empirical cumulative distribution plots.
 
 ##  Setup
 
@@ -52,9 +44,7 @@ levels(parts$section) <- c("Bass","Tenor","Alto","Soprano")
 
 ## Mountain plot
 
-A mountainplot, or folded empircal cumulative distribution function, is
-similar to an ordinary empirical CDF, but once the cumulative probability reaches
-0.50, the CDF is inverted, decreasing back down instead of continuing upward.
+A mountainplot, or folded empircal cumulative distribution function, is similar to an ordinary empirical CDF, but once the cumulative probability reaches 0.50, the CDF is inverted, decreasing back down instead of continuing upward.
 
 Here is an example of the traditional empirical CDFs.
 ```{r ecdf}
@@ -74,8 +64,7 @@ mountainplot(~height|section, data = parts,
              auto.key=list(columns=4), as.table=TRUE)
 ```
 
-@monti1995folded suggests that a mountain plot is helpful with exploring data and
-makes it easier to:
+@monti1995folded suggests that a mountain plot is helpful with exploring data and makes it easier to:
 
 1. Determine the median.
 2. Determine the range.
@@ -92,8 +81,7 @@ Additionally, the area under the curve is equal to the mean absolute deviation
 ## Diabetic mice example
 
 @huh1995exploring developed at the same time the concept of the
-flipped empirical distribution function.  The following code creates a
-mountainplot of Hand's diabetic mice data, which can be compared to Huh's version.
+flipped empirical distribution function.  The following code creates a mountainplot of Hand's diabetic mice data, which can be compared to Huh's version.
 
 ```{r}
 dmice <- data.frame(
@@ -108,5 +96,3 @@ mountainplot(~albumen, data=dmice, group=group, auto.key=list(columns=3),
 
 
 ## Bibliography
-
-

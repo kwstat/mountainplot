@@ -3,14 +3,12 @@ title: "Introduction to the mountainplot package"
 author: "Kevin Wright"
 date: "`r Sys.Date()`"
 output:
-  rmarkdown::html_vignette: default
-  html_document:
-    highlight: tango
+  rmarkdown::html_vignette:
 bibliography: mountainplot.bib
 vignette: >
-  % \VignetteIndexEntry{Introduction to the mountainplot package}
-  % \VignetteEncoding{UTF-8}
-  % \VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Introduction to the mountainplot package}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
 ---
 
 

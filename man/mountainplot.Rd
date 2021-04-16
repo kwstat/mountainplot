@@ -11,14 +11,18 @@ mountainplot(x, data, ...)
 
 mountainplotyscale.components(...)
 
-\method{mountainplot}{formula}(x, data = NULL,
-  prepanel = "prepanel.mountainplot", panel = "panel.mountainplot",
+\method{mountainplot}{formula}(
+  x,
+  data = NULL,
+  prepanel = "prepanel.mountainplot",
+  panel = "panel.mountainplot",
   ylab = gettext("Folded Empirical CDF"),
-  yscale.components = mountainplotyscale.components, scales = list(y =
-  list(alternating = 3)), ...)
+  yscale.components = mountainplotyscale.components,
+  scales = list(y = list(alternating = 3)),
+  ...
+)
 
-\method{mountainplot}{numeric}(x, data = NULL,
-  xlab = deparse(substitute(x)), ...)
+\method{mountainplot}{numeric}(x, data = NULL, xlab = deparse(substitute(x)), ...)
 }
 \arguments{
 \item{x}{Variable in the data.frame 'data'.}

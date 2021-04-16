@@ -4,12 +4,12 @@
 [![CRAN_Downloads](https://cranlogs.r-pkg.org/badges/mountainplot)](https://cranlogs.r-pkg.org/badges/mountainplot)
 
 
-Homepage: https://kwstat.github.io/mountainplot/
+Homepage: http://kwstat.github.io/mountainplot/
 
 Repository: https://github.com/kwstat/mountainplot
 
 
-Key features:
+## Key features
 
 * Extends lattice graphics to support multi-panel, multi-group mountainplots.
 

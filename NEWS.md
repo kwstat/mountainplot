@@ -1,3 +1,6 @@
+# mountainplot 1.3 - Apr 2021
+
+* Add rmarkdown to Suggests (CRAN request)
 
 # mountainplot 1.2 - Jul 2017
 

@@ -37,7 +37,8 @@ section <- gsub(" 2", "", section)
 section <- factor(section)
 })
 # Change levels to logical ordering
-levels(parts$section) <- c("Bass","Tenor","Alto","Soprano")
+parts$section <- factor(parts$section,
+                        levels=c("Bass","Tenor","Alto","Soprano"))
 mountainplot(~height|section, data = parts,
              groups=voice.part, type='l',
              layout=c(1,4),

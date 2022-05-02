@@ -14,7 +14,7 @@ vignette: >
 
 ## Abstract
 
-The `mountainplot` package provide an extension to the `lattice` package that allows for the consutruction of mountain plots, which are also known as folded empirical cumulative distribution plots.
+The `mountainplot` package provide an extension to the `lattice` package that allows for the construction of mountain plots, which are also known as folded empirical cumulative distribution plots.
 
 ##  Setup
 
@@ -37,12 +37,13 @@ section <- gsub(" 2", "", section)
 section <- factor(section)
 })
 # Change levels to logical ordering
-levels(parts$section) <- c("Bass","Tenor","Alto","Soprano")
+parts$section <- factor(parts$section,
+                        levels=c("Bass","Tenor","Alto","Soprano"))
 ```
 
 ## Mountain plot
 
-A mountainplot, or folded empircal cumulative distribution function, is similar to an ordinary empirical CDF, but once the cumulative probability reaches 0.50, the CDF is inverted, decreasing back down instead of continuing upward.
+A mountainplot, or folded empirical cumulative distribution function, is similar to an ordinary empirical CDF, but once the cumulative probability reaches 0.50, the CDF is inverted, decreasing back down instead of continuing upward.
 
 Here is an example of the traditional empirical CDFs.
 ```{r ecdf}
@@ -50,7 +51,7 @@ require(latticeExtra) # for ecdfplot
 ecdfplot(~height|section, data = parts, groups=voice.part, type='l',
          layout=c(1,4),
          main="Empirical CDF",
-         auto.key=list(columns=4), as.table=TRUE)
+         auto.key=list(columns=2), as.table=TRUE)
 ```
 
 Here is a view of the same data shown with a mountain plot.

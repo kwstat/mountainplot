@@ -1,3 +1,7 @@
+# mountainplot 1.4 - May 2022
+
+* Fix bug in vignette.
+
 # mountainplot 1.3 - Apr 2021
 
 * Add rmarkdown to Suggests (CRAN request)

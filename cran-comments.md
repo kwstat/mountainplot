@@ -1,3 +1,13 @@
+# mountainplot 1.4
+
+## Test environments
+
+* local R 4.2.0 on Windows 10
+* Rhub Ubuntu Linux 20.04.1 LTS, R-release, GCC
+* Rhub Fedora Linux, R-devel, clang, gfortran
+
+There were no WARNINGs or ERRORs.
+
 # mountainplot 1.3
 
 ## Test environments

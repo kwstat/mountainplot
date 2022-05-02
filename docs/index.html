@@ -30,6 +30,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -42,23 +44,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">mountainplot</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.4</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -75,7 +71,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/kwstat/mountainplot/">
+  <a href="https://github.com/kwstat/mountainplot/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -92,97 +88,107 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="mountainplot-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#mountainplot-" class="anchor"></a>mountainplot <img src="reference/figures/logo.png" align="right">
+<div class="section level1">
+<div class="page-header"><h1 id="mountainplot-">mountainplot <img src="reference/figures/logo.png" align="right"><a class="anchor" aria-label="anchor" href="#mountainplot-"></a>
 </h1></div>
 
-<p>Homepage: <a href="http://kwstat.github.io/mountainplot/" class="uri">http://kwstat.github.io/mountainplot/</a></p>
-<p>Repository: <a href="https://github.com/kwstat/mountainplot" class="uri">https://github.com/kwstat/mountainplot</a></p>
-<div id="key-features" class="section level2">
-<h2 class="hasAnchor">
-<a href="#key-features" class="anchor"></a>Key features</h2>
-<ul>
-<li>Extends lattice graphics to support multi-panel, multi-group mountainplots.</li>
-</ul>
+<p>Homepage: <a href="http://kwstat.github.io/mountainplot/" class="external-link uri">http://kwstat.github.io/mountainplot/</a></p>
+<p>Repository: <a href="https://github.com/kwstat/mountainplot" class="external-link uri">https://github.com/kwstat/mountainplot</a></p>
+<div class="section level2">
+<h2 id="key-features">Key features<a class="anchor" aria-label="anchor" href="#key-features"></a>
+</h2>
+<ul><li>Extends lattice graphics to support multi-panel, multi-group mountainplots.</li></ul>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Install the released version from CRAN:</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"mountainplot"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mountainplot"</span><span class="op">)</span>
 
 <span class="co"># Install the development version from GitHub:</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"kwstat/mountainplot"</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"kwstat/mountainplot"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="usage" class="section level2">
-<h2 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h2>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://kwstat.github.io/mountainplot/">mountainplot</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">singer</span>, package <span class="op">=</span> <span class="st">"lattice"</span><span class="op">)</span>
-<span class="va">parts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html">within</a></span><span class="op">(</span><span class="va">singer</span>, <span class="op">{</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://kwstat.github.io/mountainplot/" class="external-link">mountainplot</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">singer</span>, package <span class="op">=</span> <span class="st">"lattice"</span><span class="op">)</span>
+<span class="va">parts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">within</a></span><span class="op">(</span><span class="va">singer</span>, <span class="op">{</span>
 <span class="va">section</span> <span class="op">&lt;-</span> <span class="va">voice.part</span>
-<span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">" 1"</span>, <span class="st">""</span>, <span class="va">section</span><span class="op">)</span>
-<span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">" 2"</span>, <span class="st">""</span>, <span class="va">section</span><span class="op">)</span>
-<span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">section</span><span class="op">)</span>
+<span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">" 1"</span>, <span class="st">""</span>, <span class="va">section</span><span class="op">)</span>
+<span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">" 2"</span>, <span class="st">""</span>, <span class="va">section</span><span class="op">)</span>
+<span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">section</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co"># Change levels to logical ordering</span>
-<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">parts</span><span class="op">$</span><span class="va">section</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Bass"</span>,<span class="st">"Tenor"</span>,<span class="st">"Alto"</span>,<span class="st">"Soprano"</span><span class="op">)</span>
+<span class="va">parts</span><span class="op">$</span><span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">parts</span><span class="op">$</span><span class="va">section</span>,
+                        levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Bass"</span>,<span class="st">"Tenor"</span>,<span class="st">"Alto"</span>,<span class="st">"Soprano"</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="reference/mountainplot.html">mountainplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">height</span><span class="op">|</span><span class="va">section</span>, data <span class="op">=</span> <span class="va">parts</span>,
              groups<span class="op">=</span><span class="va">voice.part</span>, type<span class="op">=</span><span class="st">'l'</span>,
-             layout<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span>,
+             layout<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span>,
              main<span class="op">=</span><span class="st">"Folded Empirical CDF"</span>,
-             auto.key<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>columns<span class="op">=</span><span class="fl">4</span><span class="op">)</span>, as.table<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/mountainplot.png" alt="mountainplot"></p>
+             auto.key<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>columns<span class="op">=</span><span class="fl">4</span><span class="op">)</span>, as.table<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<div class="figure">
+<img src="reference/figures/mountainplot.png" alt=""><p class="caption">mountainplot</p>
+</div>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=mountainplot">https://​cloud.r-project.org/​package=mountainplot</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/kwstat/mountainplot/">https://​github.com/​kwstat/​mountainplot/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/kwstat/mountainplot/issues">https://​github.com/​kwstat/​mountainplot/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Kevin Wright <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-0617-8673" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="https://cloud.r-project.org/package=mountainplot" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/kwstat/mountainplot/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/kwstat/mountainplot/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://cran.r-project.org/package=mountainplot"><img src="http://www.r-pkg.org/badges/version/mountainplot" alt="CRAN_Status_Badge"></a></li>
-<li><a href="https://cranlogs.r-pkg.org/badges/mountainplot"><img src="https://cranlogs.r-pkg.org/badges/mountainplot" alt="CRAN_Downloads"></a></li>
+<li><a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing mountainplot</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Kevin Wright <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-0617-8673" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/package=mountainplot" class="external-link"><img src="http://www.r-pkg.org/badges/version/mountainplot" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://cranlogs.r-pkg.org/badges/mountainplot" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/mountainplot" alt="CRAN_Downloads"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Kevin Wright.</p>
+  <p></p>
+<p>Developed by Kevin Wright.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
@@ -190,6 +196,8 @@
 
   
 
+
+  
 
   </body>
 </html>

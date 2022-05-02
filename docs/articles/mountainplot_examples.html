@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,23 +40,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mountainplot</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.4</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -71,7 +67,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/kwstat/mountainplot/">
+  <a href="https://github.com/kwstat/mountainplot/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -86,64 +82,65 @@
 
       
 
-      </header><script src="mountainplot_examples_files/header-attrs-2.6/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to the mountainplot package</h1>
-                        <h4 class="author">Kevin Wright</h4>
+                        <h4 data-toc-skip class="author">Kevin Wright</h4>
             
-            <h4 class="date">2021-04-16</h4>
+            <h4 data-toc-skip class="date">2022-05-01</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/kwstat/mountainplot/blob/master/vignettes/mountainplot_examples.Rmd"><code>vignettes/mountainplot_examples.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/kwstat/mountainplot/blob/HEAD/../../../Users/wrightkevi/OneDrive/kw_work/rpack/mountainplot/vignettes/mountainplot_examples.Rmd" class="external-link"><code>../../../Users/wrightkevi/OneDrive/kw_work/rpack/mountainplot/vignettes/mountainplot_examples.Rmd</code></a></small>
       <div class="hidden name"><code>mountainplot_examples.Rmd</code></div>
 
     </div>
 
     
     
-<div id="abstract" class="section level2">
-<h2 class="hasAnchor">
-<a href="#abstract" class="anchor"></a>Abstract</h2>
-<p>The <code>mountainplot</code> package provide an extension to the <code>lattice</code> package that allows for the consutruction of mountain plots, which are also known as folded empirical cumulative distribution plots.</p>
+<div class="section level2">
+<h2 id="abstract">Abstract<a class="anchor" aria-label="anchor" href="#abstract"></a>
+</h2>
+<p>The <code>mountainplot</code> package provide an extension to the <code>lattice</code> package that allows for the construction of mountain plots, which are also known as folded empirical cumulative distribution plots.</p>
 </div>
-<div id="setup" class="section level2">
-<h2 class="hasAnchor">
-<a href="#setup" class="anchor"></a>Setup</h2>
+<div class="section level2">
+<h2 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
+</h2>
 <p>Load the package and use the <code>singer</code> data from the <code>lattice</code> package. Combine the first and second parts of each voice part into a new variable called <code>section</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://kwstat.github.io/mountainplot/">"mountainplot"</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">singer</span>, package <span class="op">=</span> <span class="st">"lattice"</span><span class="op">)</span>
-<span class="va">parts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html">within</a></span><span class="op">(</span><span class="va">singer</span>, <span class="op">{</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://kwstat.github.io/mountainplot/" class="external-link">"mountainplot"</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">singer</span>, package <span class="op">=</span> <span class="st">"lattice"</span><span class="op">)</span>
+<span class="va">parts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">within</a></span><span class="op">(</span><span class="va">singer</span>, <span class="op">{</span>
 <span class="va">section</span> <span class="op">&lt;-</span> <span class="va">voice.part</span>
-<span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">" 1"</span>, <span class="st">""</span>, <span class="va">section</span><span class="op">)</span>
-<span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">" 2"</span>, <span class="st">""</span>, <span class="va">section</span><span class="op">)</span>
-<span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">section</span><span class="op">)</span>
+<span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">" 1"</span>, <span class="st">""</span>, <span class="va">section</span><span class="op">)</span>
+<span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">" 2"</span>, <span class="st">""</span>, <span class="va">section</span><span class="op">)</span>
+<span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">section</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co"># Change levels to logical ordering</span>
-<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">parts</span><span class="op">$</span><span class="va">section</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Bass"</span>,<span class="st">"Tenor"</span>,<span class="st">"Alto"</span>,<span class="st">"Soprano"</span><span class="op">)</span></code></pre></div>
+<span class="va">parts</span><span class="op">$</span><span class="va">section</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">parts</span><span class="op">$</span><span class="va">section</span>,
+                        levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Bass"</span>,<span class="st">"Tenor"</span>,<span class="st">"Alto"</span>,<span class="st">"Soprano"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="mountain-plot" class="section level2">
-<h2 class="hasAnchor">
-<a href="#mountain-plot" class="anchor"></a>Mountain plot</h2>
-<p>A mountainplot, or folded empircal cumulative distribution function, is similar to an ordinary empirical CDF, but once the cumulative probability reaches 0.50, the CDF is inverted, decreasing back down instead of continuing upward.</p>
+<div class="section level2">
+<h2 id="mountain-plot">Mountain plot<a class="anchor" aria-label="anchor" href="#mountain-plot"></a>
+</h2>
+<p>A mountainplot, or folded empirical cumulative distribution function, is similar to an ordinary empirical CDF, but once the cumulative probability reaches 0.50, the CDF is inverted, decreasing back down instead of continuing upward.</p>
 <p>Here is an example of the traditional empirical CDFs.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="http://latticeextra.r-forge.r-project.org/">latticeExtra</a></span><span class="op">)</span> <span class="co"># for ecdfplot</span></code></pre></div>
-<pre><code>## Loading required package: latticeExtra</code></pre>
-<pre><code>## Loading required package: lattice</code></pre>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="http://latticeextra.r-forge.r-project.org/" class="external-link">latticeExtra</a></span><span class="op">)</span> <span class="co"># for ecdfplot</span></code></pre></div>
+<pre><code><span class="co">## Loading required package: latticeExtra</span></code></pre>
+<pre><code><span class="co">## Loading required package: lattice</span></code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/latticeExtra/man/ecdfplot.html">ecdfplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">height</span><span class="op">|</span><span class="va">section</span>, data <span class="op">=</span> <span class="va">parts</span>, groups<span class="op">=</span><span class="va">voice.part</span>, type<span class="op">=</span><span class="st">'l'</span>,
-         layout<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span>,
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/latticeExtra/man/ecdfplot.html" class="external-link">ecdfplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">height</span><span class="op">|</span><span class="va">section</span>, data <span class="op">=</span> <span class="va">parts</span>, groups<span class="op">=</span><span class="va">voice.part</span>, type<span class="op">=</span><span class="st">'l'</span>,
+         layout<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span>,
          main<span class="op">=</span><span class="st">"Empirical CDF"</span>,
-         auto.key<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>columns<span class="op">=</span><span class="fl">4</span><span class="op">)</span>, as.table<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+         auto.key<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>columns<span class="op">=</span><span class="fl">2</span><span class="op">)</span>, as.table<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><img src="mountainplot_examples_files/figure-html/ecdf-1.png" width="576" style="display: block; margin: auto;"></p>
 <p>Here is a view of the same data shown with a mountain plot.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/mountainplot.html">mountainplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">height</span><span class="op">|</span><span class="va">section</span>, data <span class="op">=</span> <span class="va">parts</span>,
              groups<span class="op">=</span><span class="va">voice.part</span>, type<span class="op">=</span><span class="st">'l'</span>,
-             layout<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span>,
+             layout<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span>,
              main<span class="op">=</span><span class="st">"Folded Empirical CDF"</span>,
-             auto.key<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>columns<span class="op">=</span><span class="fl">4</span><span class="op">)</span>, as.table<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+             auto.key<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>columns<span class="op">=</span><span class="fl">4</span><span class="op">)</span>, as.table<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><img src="mountainplot_examples_files/figure-html/mtn-1.png" width="576" style="display: block; margin: auto;"></p>
 <p><span class="citation">Monti (1995)</span> suggests that a mountain plot is helpful with exploring data and makes it easier to:</p>
 <ol style="list-style-type: decimal">
@@ -158,33 +155,33 @@
 </ol>
 <p>Additionally, the area under the curve is equal to the mean absolute deviation (MAD) <span class="citation">Xue and Titterington (2011)</span>.</p>
 </div>
-<div id="diabetic-mice-example" class="section level2">
-<h2 class="hasAnchor">
-<a href="#diabetic-mice-example" class="anchor"></a>Diabetic mice example</h2>
+<div class="section level2">
+<h2 id="diabetic-mice-example">Diabetic mice example<a class="anchor" aria-label="anchor" href="#diabetic-mice-example"></a>
+</h2>
 <p><span class="citation">Huh (1995)</span> developed at the same time the concept of the flipped empirical distribution function. The following code creates a mountainplot of Hand’s diabetic mice data, which can be compared to Huh’s version.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dmice</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
-  albumen<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">156</span>,<span class="fl">282</span>,<span class="fl">197</span>,<span class="fl">297</span>,<span class="fl">116</span>,<span class="fl">127</span>,<span class="fl">119</span>,<span class="fl">29</span>,<span class="fl">253</span>,<span class="fl">122</span>,<span class="fl">349</span>,<span class="fl">110</span>,<span class="fl">143</span>,<span class="fl">64</span>,<span class="fl">26</span>,<span class="fl">86</span>,<span class="fl">122</span>,<span class="fl">455</span>,<span class="fl">655</span>,<span class="fl">14</span>,
+<code class="sourceCode R"><span class="va">dmice</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>
+  albumen<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">156</span>,<span class="fl">282</span>,<span class="fl">197</span>,<span class="fl">297</span>,<span class="fl">116</span>,<span class="fl">127</span>,<span class="fl">119</span>,<span class="fl">29</span>,<span class="fl">253</span>,<span class="fl">122</span>,<span class="fl">349</span>,<span class="fl">110</span>,<span class="fl">143</span>,<span class="fl">64</span>,<span class="fl">26</span>,<span class="fl">86</span>,<span class="fl">122</span>,<span class="fl">455</span>,<span class="fl">655</span>,<span class="fl">14</span>,
           <span class="fl">391</span>,<span class="fl">46</span>,<span class="fl">469</span>,<span class="fl">86</span>,<span class="fl">174</span>,<span class="fl">133</span>,<span class="fl">13</span>,<span class="fl">499</span>,<span class="fl">168</span>,<span class="fl">62</span>,<span class="fl">127</span>,<span class="fl">276</span>,<span class="fl">176</span>,<span class="fl">146</span>,<span class="fl">108</span>,<span class="fl">276</span>,<span class="fl">50</span>,<span class="fl">73</span>,
           <span class="fl">82</span>,<span class="fl">100</span>,<span class="fl">98</span>,<span class="fl">150</span>,<span class="fl">243</span>,<span class="fl">68</span>,<span class="fl">228</span>,<span class="fl">131</span>,<span class="fl">73</span>,<span class="fl">18</span>,<span class="fl">20</span>,<span class="fl">100</span>,<span class="fl">72</span>,<span class="fl">133</span>,<span class="fl">465</span>,<span class="fl">40</span>,<span class="fl">46</span>,<span class="fl">34</span>, <span class="fl">44</span><span class="op">)</span>,
-  group<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'normal'</span>,<span class="fl">20</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'alloxan'</span>, <span class="fl">18</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'insulin'</span>, <span class="fl">19</span><span class="op">)</span><span class="op">)</span>
+  group<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">'normal'</span>,<span class="fl">20</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">'alloxan'</span>, <span class="fl">18</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">'insulin'</span>, <span class="fl">19</span><span class="op">)</span><span class="op">)</span>
 <span class="op">)</span>
-<span class="fu"><a href="../reference/mountainplot.html">mountainplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">albumen</span>, data<span class="op">=</span><span class="va">dmice</span>, group<span class="op">=</span><span class="va">group</span>, auto.key<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>columns<span class="op">=</span><span class="fl">3</span><span class="op">)</span>,
+<span class="fu"><a href="../reference/mountainplot.html">mountainplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">albumen</span>, data<span class="op">=</span><span class="va">dmice</span>, group<span class="op">=</span><span class="va">group</span>, auto.key<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>columns<span class="op">=</span><span class="fl">3</span><span class="op">)</span>,
              main<span class="op">=</span><span class="st">"Diabetic mice"</span>, xlab<span class="op">=</span><span class="st">"Nitrogen-bound bovine serum albumen"</span><span class="op">)</span></code></pre></div>
 <p><img src="mountainplot_examples_files/figure-html/unnamed-chunk-2-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
-<div id="bibliography" class="section level2 unnumbered">
-<h2 class="hasAnchor">
-<a href="#bibliography" class="anchor"></a>Bibliography</h2>
+<div class="section level2 unnumbered">
+<h2 class="unnumbered" id="bibliography">Bibliography<a class="anchor" aria-label="anchor" href="#bibliography"></a>
+</h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-huh1995exploring" class="csl-entry">
-Huh, Moon Yul. 1995. <span>“Exploring Multidimensional Data with the Flipped Empirical Distribution Function.”</span> <em>Journal of Computational and Graphical Statistics</em> 4 (4): 335–43. <a href="https://doi.org/10.2307/1390860">https://doi.org/10.2307/1390860</a>.
+Huh, Moon Yul. 1995. <span>“Exploring Multidimensional Data with the Flipped Empirical Distribution Function.”</span> <em>Journal of Computational and Graphical Statistics</em> 4 (4): 335–43. <a href="https://doi.org/10.2307/1390860" class="external-link">https://doi.org/10.2307/1390860</a>.
 </div>
 <div id="ref-monti1995folded" class="csl-entry">
-Monti, K. L. 1995. <span>“Folded Empirical Distribution Function Curves-Mountain Plots.”</span> <em>American Statistician</em> 49: 342–45. <a href="https://doi.org/10.1080/00031305.1995.10476179">https://doi.org/10.1080/00031305.1995.10476179</a>.
+Monti, K. L. 1995. <span>“Folded Empirical Distribution Function Curves-Mountain Plots.”</span> <em>American Statistician</em> 49: 342–45. <a href="https://doi.org/10.1080/00031305.1995.10476179" class="external-link">https://doi.org/10.1080/00031305.1995.10476179</a>.
 </div>
 <div id="ref-xue2011pfolded" class="csl-entry">
-Xue, Jing-Hao, and D Michael Titterington. 2011. <span>“The p-Folded Cumulative Distribution Function and the Mean Absolute Deviation from the p-Quantile.”</span> <em>Statistics &amp; Probability Letters</em> 81 (8): 1179–82. <a href="https://doi.org/10.1016/j.spl.2011.03.014">https://doi.org/10.1016/j.spl.2011.03.014</a>.
+Xue, Jing-Hao, and D Michael Titterington. 2011. <span>“The p-Folded Cumulative Distribution Function and the Mean Absolute Deviation from the p-Quantile.”</span> <em>Statistics &amp; Probability Letters</em> 81 (8): 1179–82. <a href="https://doi.org/10.1016/j.spl.2011.03.014" class="external-link">https://doi.org/10.1016/j.spl.2011.03.014</a>.
 </div>
 </div>
 </div>
@@ -201,11 +198,13 @@ Xue, Jing-Hao, and D Michael Titterington. 2011. <span>“The p-Folded Cumulativ
 
 
       <footer><div class="copyright">
-  <p>Developed by Kevin Wright.</p>
+  <p></p>
+<p>Developed by Kevin Wright.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
@@ -213,6 +212,8 @@ Xue, Jing-Hao, and D Michael Titterington. 2011. <span>“The p-Folded Cumulativ
 
   
 
+
+  
 
   </body>
 </html>

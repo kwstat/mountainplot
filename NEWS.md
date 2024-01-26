@@ -1,3 +1,7 @@
+# mountainplot 1.5 - unpublished
+
+* Switch to MIT license.
+
 # mountainplot 1.4 - May 2022
 
 * Fix bug in vignette.

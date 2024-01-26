@@ -5,6 +5,7 @@
 * local R 4.2.0 on Windows 10
 * Rhub Ubuntu Linux 20.04.1 LTS, R-release, GCC
 * Rhub Fedora Linux, R-devel, clang, gfortran
+* Win-builder R Under development (unstable) (2022-05-01 r82294 ucrt)
 
 There were no WARNINGs or ERRORs.
 

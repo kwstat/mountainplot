@@ -1,1 +1,4 @@
-destination: docs
+url: http://kwstat.github.io/mountainplot/
+template:
+  bootstrap: 5
+

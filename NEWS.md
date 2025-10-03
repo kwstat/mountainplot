@@ -1,6 +1,8 @@
-# mountainplot 1.5 - unpublished
+# mountainplot 1.5 ()
 
 * Switch to MIT license.
+
+* Documentation pages now created via Github Actions.
 
 
 # mountainplot 1.4 (2022-05-01)

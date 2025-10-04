@@ -1,9 +1,8 @@
 # mountainplot 1.5 ()
 
 * Switch to MIT license.
-
 * Documentation pages now created via Github Actions.
-
+* Use Air for formatting.
 
 # mountainplot 1.4 (2022-05-01)
 
@@ -18,13 +17,9 @@
 # mountainplot 1.2 (2017-07-13)
 
 * Added diabetic mice example to vignette.
-
 * Changed vignette from Rnw to Rmd.
-
 * Switched to `roxygen2` documentation.
-
 * Now using `testthat` and `covr` packages.
-
 * Added package logo on github.
 
 
